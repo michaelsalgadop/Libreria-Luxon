@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxon</title>
+    <link rel="stylesheet" href="favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/index.js" defer></script>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <aside class="columna-guia">
+          <h2 class="text-center">
+            <a href="#" class="link-normal">Luxon</a>
+          </h2>
+          <ul class="listado">
+            <li>
+              <a class="link-normal" href="#porque-usar-luxon"
+                >¿Por qué usar Luxon?</a
+              >
+            </li>
+            <li>
+              <a class="link-normal" href="#install">Guía de instalación:</a>
+              <ul>
+                <li>
+                  <a class="link-normal" href="#install/basic-browser-setup"
+                    >Configuración básica del navegador</a
+                  >
+                </li>
+                <li>
+                  <a class="link-normal" href="#install/nodejs">Node.js</a>
+                </li>
+                <li><a class="link-normal" href="#install/es6">ES6</a></li>
+              </ul>
+            </li>
+            <li>
+              <a class="link-normal" href="#como-usarlo">Como utilizarlo?</a>
+              <ul>
+                <li>
+                  <a class="link-normal" href="#como-usarlo/crear"
+                    >Crear fechas y horas</a
+                  >
+                </li>
+                <li>
+                  <a class="link-normal" href="#como-usarlo/formatear"
+                    >Formatear fechas</a
+                  >
+                </li>
+                <li>
+                  <a class="link-normal" href="#como-usarlo/operaciones"
+                    >Operaciones con Fechas</a
+                  >
+                </li>
+                <li>
+                  <a class="link-normal" href="#como-usarlo/zona"
+                    >Zonas horarias</a
+                  >
+                </li>
+                <li>
+                  <a class="link-normal" href="#como-usarlo/validacion"
+                    >Validación de fechas</a
+                  >
+                </li>
+                <li>
+                  <a class="link-normal" href="#como-usarlo/conversion"
+                    >Conversión entre unidades</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </aside>
+        <main class="contenido-web">
+          <div class="contenedor-titulo">
+            <div class="textos-titulo text-center">
+              <h1 class="titulo">Librería Luxon</h1>
+              <span class="subtitulo"
+                >Util para todo tipo de manejo de fechas y horas</span
+              >
+            </div>
+            <img
+              src="img/Reloj.jpg"
+              alt="Reloj enterrado en arena"
+              class="imagen-titulo img-fluid"
+            />
+          </div>
+
+          <section class="col-12">
+            <h2 id="porque-usar-luxon" class="titulo-web">
+              ¿Por qué usar Luxon?
+            </h2>
+            <p class="m-0">
+              Luxon es muy útil cuando necesitas trabajar con fechas y horas de
+              manera eficiente, especialmente si tu aplicación maneja varias
+              Zonas horarias o requiere una manipulación compleja de fechas. Es
+              una librería moderna, con un enfoque más limpio y menos pesado que
+              Moment.js, y se adapta mejor a los estándares actuales de
+              JavaScript.
+            </p>
+          </section>
+          <section class="col-12">
+            <h2 id="install" class="titulo-web">Guía de instalación:</h2>
+            <h3 id="install/basic-browser-setup" class="titulo-web">
+              Configuración básica del navegador
+            </h3>
+            <ul class="listado">
+              <li>
+                <a
+                  href="https://moment.github.io/luxon/global/luxon.js"
+                  target="_blank"
+                  rel="noopener"
+                  class="link-descarga"
+                  >Descargar completo</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://moment.github.io/luxon/global/luxon.min.js"
+                  target="_blank"
+                  rel="noopener"
+                  class="link-descarga"
+                  >Descargar minificado</a
+                >
+              </li>
+            </ul>
+            <p>
+              Simplemente incluya Luxon en una etiqueta de script. Puede acceder
+              a sus distintas clases a través de la
+              <span>luxon</span> etiqueta global.
+            </p>
+            <div
+              class="codigo d-flex justify-content-between align-items-center"
+            >
+              <span id="paso-1-configuracion-basica-navegador"
+                >&lt;script src="luxon.js"&gt;&lt;/script&gt;</span
+              >
+              <div class="d-flex align-items-center">
+                <span
+                  id="copy_paso-1-configuracion-basica-navegador"
+                  title="Copiar"
+                  class="copy material-symbols-outlined"
+                >
+                  content_paste
+                </span>
+                <div
+                  id="check_paso-1-configuracion-basica-navegador"
+                  class="check"
+                >
+                  <span class="material-symbols-outlined"> check </span>
+                  <span>Copiado!</span>
+                </div>
+              </div>
+            </div>
+            <p>
+              Es posible que desees crear un alias para las clases que utilizas:
+            </p>
+            <div
+              class="codigo d-flex justify-content-between align-items-center"
+            >
+              <span id="paso-2-configuracion-basica-navegador"
+                >var DateTime = luxon.DateTime;</span
+              >
+              <div class="d-flex align-items-center">
+                <span
+                  id="copy_paso-2-configuracion-basica-navegador"
+                  title="Copiar"
+                  class="copy material-symbols-outlined"
+                >
+                  content_paste
+                </span>
+                <div
+                  id="check_paso-2-configuracion-basica-navegador"
+                  class="check"
+                >
+                  <span class="material-symbols-outlined"> check </span>
+                  <span>Copiado!</span>
+                </div>
+              </div>
+            </div>
+            <h3 id="install/nodejs" class="titulo-web">Node.js</h3>
+            <p>Compatible con Node.js 6+. Instalación mediante NPM:</p>
+            <div
+              class="codigo d-flex justify-content-between align-items-center"
+            >
+              <span id="paso-1-nodejs">npm install --save luxon</span>
+              <div class="d-flex align-items-center">
+                <span
+                  id="copy_paso-1-nodejs"
+                  title="Copiar"
+                  class="copy material-symbols-outlined"
+                >
+                  content_paste
+                </span>
+                <div id="check_paso-1-nodejs" class="check">
+                  <span class="material-symbols-outlined"> check </span>
+                  <span>Copiado!</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="codigo d-flex justify-content-between align-items-center"
+            >
+              <span id="paso-2-nodejs"
+                >const { DateTime } = require("luxon");</span
+              >
+              <div class="d-flex align-items-center">
+                <span
+                  id="copy_paso-2-nodejs"
+                  title="Copiar"
+                  class="copy material-symbols-outlined"
+                >
+                  content_paste
+                </span>
+                <div id="check_paso-2-nodejs" class="check">
+                  <span class="material-symbols-outlined"> check </span>
+                  <span>Copiado!</span>
+                </div>
+              </div>
+            </div>
+            <h3 id="install/es6" class="titulo-web">ES6</h3>
+            <ul class="listado">
+              <li>
+                <a
+                  href="https://moment.github.io/luxon/es6/luxon.js"
+                  target="_blank"
+                  rel="noopener"
+                  class="link-descarga"
+                  >Descargar completo</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://moment.github.io/luxon/es6/luxon.min.js"
+                  target="_blank"
+                  rel="noopener"
+                  class="link-descarga"
+                  >Descargar minificado</a
+                >
+              </li>
+            </ul>
+            <div
+              class="codigo d-flex justify-content-between align-items-center"
+            >
+              <span id="paso-1-es6">import { DateTime } from "luxon";</span>
+              <div class="d-flex align-items-center">
+                <span
+                  id="copy_paso-1-es6"
+                  title="Copiar"
+                  class="copy material-symbols-outlined"
+                >
+                  content_paste
+                </span>
+                <div id="check_paso-1-es6" class="check">
+                  <span class="material-symbols-outlined"> check </span>
+                  <span>Copiado!</span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="col-12">
+            <h2 id="como-usarlo" class="titulo-web">Como utilizarlo?</h2>
+            <span>
+              A continuación mostraremos una guía rápida de como utilizar luxon
+              y algunos ejemplos para poder utilizarlo como verdaderos expertos:
+            </span>
+            <h3 id="como-usarlo/crear" class="titulo-web">
+              Crear fechas y horas
+            </h3>
+            <p>Fecha y hora actual:</p>
+            <div
+              class="codigo d-flex justify-content-between align-items-center"
+            >
+              <div id="paso-1-crear">
+                <span class="d-block">const now = DateTime.now();</span
+                ><span class="d-block">console.log(now.toString());</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <span
+                  id="copy_paso-1-crear"
+                  title="Copiar"
+                  class="copy material-symbols-outlined"
+                >
+                  content_paste
+                </span>
+                <div id="check_paso-1-crear" class="check">
+                  <span class="material-symbols-outlined"> check </span>
+                  <span>Copiado!</span>
+                </div>
+              </div>
+            </div>
+            <p>Fecha específica:</p>
+            <div
+              class="codigo d-flex justify-content-between align-items-center"
+            >
+              <div id="paso-2-crear">
+                <span class="d-block"
+                  >const fecha = DateTime.local(2023, 12, 25, 10, 30);
+                  <span class="comentario-codigo"
+                    >// Año, Mes, Día, Hora, Minuto</span
+                  ></span
+                ><span class="d-block">console.log(fecha.toString());</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <span
+                  id="copy_paso-2-crear"
+                  title="Copiar"
+                  class="copy material-symbols-outlined"
+                >
+                  content_paste
+                </span>
+                <div id="check_paso-2-crear" class="check">
+                  <span class="material-symbols-outlined"> check </span>
+                  <span>Copiado!</span>
+                </div>
+              </div>
+            </div>
+            <p>Desde una ISO8601:</p>
+            <div
+              class="codigo d-flex justify-content-between align-items-center"
+            >
+              <div id="paso-3-crear">
+                <span class="d-block"
+                  >const fechaISO =
+                  DateTime.fromISO("2024-12-12T15:30:00");</span
+                ><span class="d-block">console.log(fechaISO.toString());</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <span
+                  id="copy_paso-3-crear"
+                  title="Copiar"
+                  class="copy material-symbols-outlined"
+                >
+                  content_paste
+                </span>
+                <div id="check_paso-3-crear" class="check">
+                  <span class="material-symbols-outlined"> check </span>
+                  <span>Copiado!</span>
+                </div>
+              </div>
+            </div>
+            <h3 id="como-usarlo/formatear" class="titulo-web">
+              Formatear fechas
+            </h3>
+            <span
+              >Luxon ofrece métodos poderosos para mostrar fechas en diversos
+              formatos.</span
+            >
+            <p class="titulo-web">Formateo estándar:</p>
+            <div
+              class="codigo d-flex justify-content-between align-items-center"
+            >
+              <div id="paso-1-formatear">
+                <span class="d-block"
+                  >console.log(now.toISO());
+                  <span class="comentario-codigo">// ISO 8601</span></span
+                ><span class="d-block"
+                  >console.log(now.toLocaleString(DateTime.DATE_MED));
+                  <span class="comentario-codigo"
+                    >// 12 de dic. de 2024</span
+                  ></span
+                >
+              </div>
+              <div class="d-flex align-items-center">
+                <span
+                  id="copy_paso-1-formatear"
+                  title="Copiar"
+                  class="copy material-symbols-outlined"
+                >
+                  content_paste
+                </span>
+                <div id="check_paso-1-formatear" class="check">
+                  <span class="material-symbols-outlined"> check </span>
+                  <span>Copiado!</span>
+                </div>
+              </div>
+            </div>
+            <p>Formateo personalizado:</p>
+            <div
+              class="codigo d-flex justify-content-between align-items-center"
+            >
+              <div id="paso-2-formatear">
+                <span class="d-block"
+                  >console.log(now.toFormat("yyyy LLL dd"));
+                  <span class="comentario-codigo"> // 2024 Dec 12</span></span
+                ><span class="d-block"
+                  >console.log(now.toFormat("hh:mm a"));<span
+                    class="comentario-codigo"
+                  >
+                    // 03:30 PM</span
+                  ></span
+                >
+              </div>
+              <div class="d-flex align-items-center">
+                <span
+                  id="copy_paso-2-formatear"
+                  title="Copiar"
+                  class="copy material-symbols-outlined"
+                >
+                  content_paste
+                </span>
+                <div id="check_paso-2-formatear" class="check">
+                  <span class="material-symbols-outlined"> check </span>
+                  <span>Copiado!</span>
+                </div>
+              </div>
+            </div>
+            <h3 id="como-usarlo/operaciones" class="titulo-web">
+              Operaciones con Fechas
+            </h3>
+            <span>Luxon permite realizar cálculos fácilmente.</span>
+            <p class="titulo-web">Agregar o quitar tiempo:</p>
+            <div
+              class="codigo d-flex justify-content-between align-items-center"
+            >
+              <div id="paso-1-operaciones">
+                <span class="d-block"
+                  >const sumaDias = now.plus({ days: 5 });</span
+                ><span class="d-block">console.log(sumaDias.toString());</span
+                ><br /><span class="d-block"
+                  >const restaHoras = now.minus({ hours: 3 });</span
+                ><span class="d-block"
+                  >console.log(restaHoras.toString());</span
+                >
+              </div>
+              <div class="d-flex align-items-center">
+                <span
+                  id="copy_paso-1-operaciones"
+                  title="Copiar"
+                  class="copy material-symbols-outlined"
+                >
+                  content_paste
+                </span>
+                <div id="check_paso-1-operaciones" class="check">
+                  <span class="material-symbols-outlined"> check </span>
+                  <span>Copiado!</span>
+                </div>
+              </div>
+            </div>
+            <p>Diferencia entre dos fechas:</p>
+            <div
+              class="codigo d-flex justify-content-between align-items-center"
+            >
+              <div id="paso-2-operaciones">
+                <span class="d-block"
+                  >const fecha1 = DateTime.local(2024, 12, 1);</span
+                ><span class="d-block"
+                  >const fecha2 = DateTime.local(2024, 12, 25);</span
+                ><span class="d-block"
+                  >const diff = fecha2.diff(fecha1, ["days", "hours"]);</span
+                ><span class="d-block"
+                  >console.log(diff.toObject());
+                  <span class="comentario-codigo"
+                    >// { days: 24, hours: 0 }</span
+                  ></span
+                >
+              </div>
+              <div class="d-flex align-items-center">
+                <span
+                  id="copy_paso-2-operaciones"
+                  title="Copiar"
+                  class="copy material-symbols-outlined"
+                >
+                  content_paste
+                </span>
+                <div id="check_paso-2-operaciones" class="check">
+                  <span class="material-symbols-outlined"> check </span>
+                  <span>Copiado!</span>
+                </div>
+              </div>
+            </div>
+            <h3 id="como-usarlo/zona" class="titulo-web">Zonas horarias</h3>
+            <span>Trabaja fácilmente con diferentes zonas horarias.</span>
+            <p class="titulo-web">Fecha en una zona específica:</p>
+            <div
+              class="codigo d-flex justify-content-between align-items-center"
+            >
+              <div id="paso-1-zona">
+                <span class="d-block"
+                  >const fechaNY =
+                  DateTime.now().setZone("America/New_York");</span
+                ><span class="d-block">console.log(fechaNY.toString());</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <span
+                  id="copy_paso-1-zona"
+                  title="Copiar"
+                  class="copy material-symbols-outlined"
+                >
+                  content_paste
+                </span>
+                <div id="check_paso-1-zona" class="check">
+                  <span class="material-symbols-outlined"> check </span>
+                  <span>Copiado!</span>
+                </div>
+              </div>
+            </div>
+            <p>Listar todas las zonas horarias:</p>
+            <div
+              class="codigo d-flex justify-content-between align-items-center"
+            >
+              <div id="paso-2-zona">
+                <span class="d-block"
+                  >console.log(DateTime.local().zoneName);
+                  <span class="comentario-codigo">// Local Timezone</span></span
+                >
+              </div>
+              <div class="d-flex align-items-center">
+                <span
+                  id="copy_paso-2-zona"
+                  title="Copiar"
+                  class="copy material-symbols-outlined"
+                >
+                  content_paste
+                </span>
+                <div id="check_paso-2-zona" class="check">
+                  <span class="material-symbols-outlined"> check </span>
+                  <span>Copiado!</span>
+                </div>
+              </div>
+            </div>
+            <h3 id="como-usarlo/validacion" class="titulo-web">
+              Validación de fechas
+            </h3>
+            <p>Puedes verificar si una fecha es válida:</p>
+            <div
+              class="codigo d-flex justify-content-between align-items-center"
+            >
+              <div id="paso-1-validacion">
+                <span class="d-block"
+                  >const fechaInvalida = DateTime.fromISO("invalid-date");</span
+                ><span class="d-block"
+                  >console.log(fechaInvalida.isValid);
+                  <span class="comentario-codigo">// false</span></span
+                >
+              </div>
+              <div class="d-flex align-items-center">
+                <span
+                  id="copy_paso-1-validacion"
+                  title="Copiar"
+                  class="copy material-symbols-outlined"
+                >
+                  content_paste
+                </span>
+                <div id="check_paso-1-validacion" class="check">
+                  <span class="material-symbols-outlined"> check </span>
+                  <span>Copiado!</span>
+                </div>
+              </div>
+            </div>
+            <h3 id="como-usarlo/conversion" class="titulo-web">
+              Conversión entre unidades
+            </h3>
+            <p>Luxon permite convertir entre milisegundos, segundos y más:</p>
+            <div
+              class="codigo d-flex justify-content-between align-items-center"
+            >
+              <div id="paso-1-conversion">
+                <span class="d-block"
+                  >const timestamp = DateTime.fromMillis(1633046400000);</span
+                ><span class="d-block"
+                  >console.log(timestamp.toString());
+                  <span class="comentario-codigo"
+                    >// Convertir desde milisegundos</span
+                  ></span
+                >
+              </div>
+              <div class="d-flex align-items-center">
+                <span
+                  id="copy_paso-1-conversion"
+                  title="Copiar"
+                  class="copy material-symbols-outlined"
+                >
+                  content_paste
+                </span>
+                <div id="check_paso-1-conversion" class="check">
+                  <span class="material-symbols-outlined"> check </span>
+                  <span>Copiado!</span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="col-12">
+            <p class="documentacion titulo-web text-center">
+              Todo esto y más en la
+              <a
+                href="https://moment.github.io/luxon/#/"
+                target="_blank"
+                class="link-descarga"
+                >Documentación oficial de Luxon.</a
+              >
+            </p>
+          </section>
+          <button
+            type="button"
+            class="boton-menu d-flex justify-content-between align-items-center"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
