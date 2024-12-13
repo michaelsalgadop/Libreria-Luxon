@@ -115,6 +115,7 @@ a {
 .codigo .copy {
   text-align: center;
   cursor: pointer;
+  color: var(--color-links-descarga);
 }
 .comentario-codigo,
 .documentacion,
