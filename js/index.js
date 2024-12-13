@@ -14,8 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (entry.isIntersecting && entry.intersectionRatio > 0) {
         // Si la sección está visible, activa su enlace
-        enlacesMenu.forEach((enlace) => enlace.classList.remove("link-activo"));
-        if (enlaceRelacionado) enlaceRelacionado.classList.add("link-activo");
+        enlacesMenu.forEach((enlace) =>
+          enlace.classList.remove("color-letra-resaltado")
+        );
+        if (enlaceRelacionado)
+          enlaceRelacionado.classList.add("color-letra-resaltado");
       }
     });
   };
@@ -32,11 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
   enlacesMenu.forEach((enlace, i, enlacesMenu) =>
     enlace.addEventListener("click", () => {
       for (const enlace of enlacesMenu) {
-        if (enlace.classList.contains("link-activo")) {
-          enlace.classList.remove("link-activo");
+        if (enlace.classList.contains("color-letra-resaltado")) {
+          enlace.classList.remove("color-letra-resaltado");
         }
       }
-      enlace.classList.add("link-activo");
+      enlace.classList.add("color-letra-resaltado");
     })
   );
 });
@@ -57,16 +60,18 @@ const esconderMostrarColumnaGuia = () => {
   const { body } = document;
   columnaGuia.classList.toggle("visible");
   botonMenu.classList.toggle("active");
-  body.style.overflow = columnaGuia.classList.contains("visible")
-    ? "hidden"
-    : "auto";
+  if (window.innerWidth < 1020) {
+    body.style.overflow = columnaGuia.classList.contains("visible")
+      ? "hidden"
+      : "auto";
+  }
 };
 
-const botonesCopy = document.querySelectorAll(".copy").forEach((botonCopy) =>
-  botonCopy.addEventListener("click", (e) => {
-    copiarTexto(e.target);
-  })
-);
+const botonesCopy = document
+  .querySelectorAll(".copy")
+  .forEach((botonCopy) =>
+    botonCopy.addEventListener("click", (e) => copiarTexto(e.target))
+  );
 const copiarTexto = (elemento) => {
   if (!document.hasFocus()) return;
   const identificadorABuscar = elemento.id.slice(elemento.id.indexOf("_") + 1);
