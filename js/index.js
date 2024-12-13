@@ -43,19 +43,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 botonMenu.addEventListener("click", (event) => {
   event.preventDefault();
-  esconderColumnaGuia();
+  esconderMostrarColumnaGuia();
 });
 
 document
   .querySelectorAll(".link-normal")
   .forEach((link) =>
-    link.addEventListener("click", (e) => esconderColumnaGuia())
+    link.addEventListener("click", (e) => esconderMostrarColumnaGuia())
   );
 
-const esconderColumnaGuia = () => {
+const esconderMostrarColumnaGuia = () => {
   const columnaGuia = document.querySelector(".columna-guia");
+  const { body } = document;
   columnaGuia.classList.toggle("visible");
   botonMenu.classList.toggle("active");
+  body.style.overflow = columnaGuia.classList.contains("visible")
+    ? "hidden"
+    : "auto";
 };
 
 const botonesCopy = document.querySelectorAll(".copy").forEach((botonCopy) =>
