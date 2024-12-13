@@ -148,7 +148,9 @@
             <div
               class="codigo d-flex justify-content-between align-items-center"
             >
-              <span id="paso-1-configuracion-basica-navegador"
+              <span
+                id="paso-1-configuracion-basica-navegador"
+                class="text-break"
                 >&lt;script src="luxon.js"&gt;&lt;/script&gt;</span
               >
               <div class="d-flex align-items-center">
@@ -174,7 +176,9 @@
             <div
               class="codigo d-flex justify-content-between align-items-center"
             >
-              <span id="paso-2-configuracion-basica-navegador"
+              <span
+                id="paso-2-configuracion-basica-navegador"
+                class="text-break"
                 >var DateTime = luxon.DateTime;</span
               >
               <div class="d-flex align-items-center">
@@ -199,7 +203,9 @@
             <div
               class="codigo d-flex justify-content-between align-items-center"
             >
-              <span id="paso-1-nodejs">npm install --save luxon</span>
+              <span id="paso-1-nodejs" class="text-break"
+                >npm install --save luxon</span
+              >
               <div class="d-flex align-items-center">
                 <span
                   id="copy_paso-1-nodejs"
@@ -217,7 +223,7 @@
             <div
               class="codigo d-flex justify-content-between align-items-center"
             >
-              <span id="paso-2-nodejs"
+              <span id="paso-2-nodejs" class="text-break"
                 >const { DateTime } = require("luxon");</span
               >
               <div class="d-flex align-items-center">
@@ -258,7 +264,9 @@
             <div
               class="codigo d-flex justify-content-between align-items-center"
             >
-              <span id="paso-1-es6">import { DateTime } from "luxon";</span>
+              <span id="paso-1-es6" class="text-break"
+                >import { DateTime } from "luxon";</span
+              >
               <div class="d-flex align-items-center">
                 <span
                   id="copy_paso-1-es6"
@@ -287,7 +295,7 @@
             <div
               class="codigo d-flex justify-content-between align-items-center"
             >
-              <div id="paso-1-crear">
+              <div id="paso-1-crear" class="text-break">
                 <span class="d-block">const now = DateTime.now();</span
                 ><span class="d-block">console.log(now.toString());</span>
               </div>
@@ -309,7 +317,7 @@
             <div
               class="codigo d-flex justify-content-between align-items-center"
             >
-              <div id="paso-2-crear">
+              <div id="paso-2-crear" class="text-break">
                 <span class="d-block"
                   >const fecha = DateTime.local(2023, 12, 25, 10, 30);
                   <span class="comentario-codigo"
@@ -335,7 +343,7 @@
             <div
               class="codigo d-flex justify-content-between align-items-center"
             >
-              <div id="paso-3-crear">
+              <div id="paso-3-crear" class="text-break">
                 <span class="d-block"
                   >const fechaISO =
                   DateTime.fromISO("2024-12-12T15:30:00");</span
@@ -366,7 +374,7 @@
             <div
               class="codigo d-flex justify-content-between align-items-center"
             >
-              <div id="paso-1-formatear">
+              <div id="paso-1-formatear" class="text-break">
                 <span class="d-block"
                   >console.log(now.toISO());
                   <span class="comentario-codigo">// ISO 8601</span></span
@@ -395,7 +403,7 @@
             <div
               class="codigo d-flex justify-content-between align-items-center"
             >
-              <div id="paso-2-formatear">
+              <div id="paso-2-formatear" class="text-break">
                 <span class="d-block"
                   >console.log(now.toFormat("yyyy LLL dd"));
                   <span class="comentario-codigo"> // 2024 Dec 12</span></span
@@ -429,7 +437,7 @@
             <div
               class="codigo d-flex justify-content-between align-items-center"
             >
-              <div id="paso-1-operaciones">
+              <div id="paso-1-operaciones" class="text-break">
                 <span class="d-block"
                   >const sumaDias = now.plus({ days: 5 });</span
                 ><span class="d-block">console.log(sumaDias.toString());</span
@@ -457,7 +465,7 @@
             <div
               class="codigo d-flex justify-content-between align-items-center"
             >
-              <div id="paso-2-operaciones">
+              <div id="paso-2-operaciones" class="text-break">
                 <span class="d-block"
                   >const fecha1 = DateTime.local(2024, 12, 1);</span
                 ><span class="d-block"
@@ -491,7 +499,7 @@
             <div
               class="codigo d-flex justify-content-between align-items-center"
             >
-              <div id="paso-1-zona">
+              <div id="paso-1-zona" class="text-break">
                 <span class="d-block"
                   >const fechaNY =
                   DateTime.now().setZone("America/New_York");</span
@@ -515,7 +523,7 @@
             <div
               class="codigo d-flex justify-content-between align-items-center"
             >
-              <div id="paso-2-zona">
+              <div id="paso-2-zona" class="text-break">
                 <span class="d-block"
                   >console.log(DateTime.local().zoneName);
                   <span class="comentario-codigo">// Local Timezone</span></span
@@ -542,7 +550,7 @@
             <div
               class="codigo d-flex justify-content-between align-items-center"
             >
-              <div id="paso-1-validacion">
+              <div id="paso-1-validacion" class="text-break">
                 <span class="d-block"
                   >const fechaInvalida = DateTime.fromISO("invalid-date");</span
                 ><span class="d-block"
@@ -571,7 +579,7 @@
             <div
               class="codigo d-flex justify-content-between align-items-center"
             >
-              <div id="paso-1-conversion">
+              <div id="paso-1-conversion" class="text-break">
                 <span class="d-block"
                   >const timestamp = DateTime.fromMillis(1633046400000);</span
                 ><span class="d-block"
