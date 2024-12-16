@@ -1,24 +1,24 @@
 const botonMenu = document.querySelector(".boton-menu");
 
 document.addEventListener("DOMContentLoaded", () => {
-  const secciones = document.querySelectorAll("main h2, main h3"); // Selecciona los encabezados con IDs
-  const enlacesMenu = document.querySelectorAll("aside .listado a"); // Los enlaces del menú
+  const secciones = document.querySelectorAll(".contenido-web .seccion"); // Selecciona los encabezados con IDs
+  const enlacesMenu = document.querySelectorAll(".columna-guia a"); // Los enlaces del menú
 
   // Callback del IntersectionObserver
   const observerCallback = (entries) => {
     entries.forEach((entry) => {
       const { id } = entry.target;
       const enlaceRelacionado = document.querySelector(
-        `aside a[href="#${id}"]`
+        `.columna-guia a[href="#${id}"]`
       );
 
       if (entry.isIntersecting && entry.intersectionRatio > 0) {
         // Si la sección está visible, activa su enlace
         enlacesMenu.forEach((enlace) =>
-          enlace.classList.remove("color-letra-resaltado")
+          enlace.classList.remove("color-secundario")
         );
         if (enlaceRelacionado)
-          enlaceRelacionado.classList.add("color-letra-resaltado");
+          enlaceRelacionado.classList.add("color-secundario");
       }
     });
   };
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const observer = new IntersectionObserver(observerCallback, {
     root: null, // Usa la ventana como contenedor
     rootMargin: "0px 0px -99% 0px", // Activa solo cuando la parte superior está cerca del viewport
-    threshold: 0, // Se activa cuando el 60% de la sección es visible
+    threshold: 0, // Se activa cuando la sección es visible
   });
 
   // Observa cada sección
@@ -35,11 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
   enlacesMenu.forEach((enlace, i, enlacesMenu) =>
     enlace.addEventListener("click", () => {
       for (const enlace of enlacesMenu) {
-        if (enlace.classList.contains("color-letra-resaltado")) {
-          enlace.classList.remove("color-letra-resaltado");
+        if (enlace.classList.contains("color-secundario")) {
+          enlace.classList.remove("color-secundario");
         }
       }
-      enlace.classList.add("color-letra-resaltado");
+      enlace.classList.add("color-secundario");
+      esconderMostrarColumnaGuia();
     })
   );
 });
@@ -48,12 +49,6 @@ botonMenu.addEventListener("click", (event) => {
   event.preventDefault();
   esconderMostrarColumnaGuia();
 });
-
-document
-  .querySelectorAll(".link-normal")
-  .forEach((link) =>
-    link.addEventListener("click", (e) => esconderMostrarColumnaGuia())
-  );
 
 const esconderMostrarColumnaGuia = () => {
   const columnaGuia = document.querySelector(".columna-guia");

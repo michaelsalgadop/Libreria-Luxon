@@ -4,14 +4,15 @@
 :root {
   --fuente-texto: "Montserrat", sans-serif;
   --fuente-codigo-explicativo: ui-monospace, SFMono-Regular, SF Mono, Menlo,
-    Consolas, Liberation Mono, monospace !important;
+    Consolas, Liberation Mono, monospace;
+  --color-principal: #003366;
+  --color-secundario: #007acc;
+  --color-terciario: #181818;
   --color-fondo-web: #fff;
-  --color-blanco-texto: #fff;
   --color-texto-titulo: #fff;
-  --color-letra-texto: #003366;
-  --color-letra-resaltado: #007acc;
+  --color-texto-codigo: #fff;
   --color-texto-deshabilitado: #9aa0a6;
-  --color-fondo-codigo-explicativo: #181818;
+  --color-lineas-boton-menu: #fff;
 }
 body,
 ul,
@@ -28,11 +29,11 @@ h3 {
   margin-top: 0;
 }
 a {
-  color: var(--color-letra-texto);
+  color: var(--color-principal);
 }
 body {
   font-family: var(--fuente-texto);
-  color: var(--color-letra-texto);
+  color: var(--color-principal);
   background-color: var(--color-fondo-web);
 }
 ul li {
@@ -41,11 +42,14 @@ ul li {
 .text-decoration-underline {
   text-decoration: underline;
 }
-.color-letra-resaltado {
-  color: var(--color-letra-resaltado);
+.color-secundario {
+  color: var(--color-secundario);
 }
 .color-letra-deshabilitado {
   color: var(--color-texto-deshabilitado);
+}
+.titulo-web {
+  padding-top: 48px;
 }
 .contenedor-titulo,
 .codigo {
@@ -72,22 +76,19 @@ ul li {
   margin-top: 20px;
   display: inline-block;
 }
-.titulo-web {
-  padding-top: 48px;
-}
 .columna-guia {
-  padding: 20px 15px;
-  border-right: 1px solid rgba(0, 0, 0, 0.07);
   position: fixed;
+  top: 0;
+  bottom: 0;
   width: 100%;
   height: 100vh;
   overflow-y: auto;
-  z-index: 2;
-  top: 0;
   transform: translateX(-100%);
-  transition: transform 0.5s ease-out;
-  bottom: 0;
+  padding: 20px 15px 40px 15px;
   background-color: var(--color-fondo-web);
+  border-right: 1px solid rgba(0, 0, 0, 0.07);
+  transition: transform 0.5s ease-out;
+  z-index: 2;
 }
 .columna-guia.visible {
   transform: translateX(0);
@@ -98,12 +99,12 @@ ul li {
 }
 .link-normal:hover,
 .link-descarga:hover {
-  color: var(--color-letra-resaltado);
+  color: var(--color-secundario);
 }
 .codigo {
   padding: 15px;
-  background-color: var(--color-fondo-codigo-explicativo);
-  color: var(--color-blanco-texto);
+  background-color: var(--color-terciario);
+  color: var(--color-texto-codigo);
   border-radius: 10px;
   margin-bottom: 15px;
   font-family: var(--fuente-codigo-explicativo);
@@ -120,24 +121,24 @@ ul li {
   align-items: center;
 }
 .boton-menu {
-  outline: 0;
-  border: 2px solid var(--color-letra-texto);
-  border-radius: 50%;
-  background-color: var(--color-letra-resaltado);
-  width: 50px;
-  height: 50px;
-  padding: 15px 0;
   position: fixed;
   left: 20px;
   bottom: 20px;
-  z-index: 30;
+  width: 50px;
+  height: 50px;
+  padding: 15px 0;
+  background-color: var(--color-secundario);
+  border: 2px solid var(--color-principal);
+  border-radius: 50%;
+  outline: 0;
   flex-direction: column;
+  z-index: 30;
 }
 .boton-menu span {
   display: block;
   width: 20px;
   height: 2px;
-  background-color: var(--color-blanco-texto);
+  background-color: var(--color-lineas-boton-menu);
   transition: ease opacity 0.5s, ease transform 0.5s;
 }
 
