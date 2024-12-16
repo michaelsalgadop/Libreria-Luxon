@@ -57,6 +57,8 @@ ul li {
 }
 .contenedor-titulo .imagen-titulo {
   filter: brightness(0.7);
+  width: 100%;
+  height: auto;
 }
 .contenedor-titulo .textos-titulo {
   position: absolute;
